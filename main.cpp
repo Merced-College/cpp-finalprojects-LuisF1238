@@ -20,8 +20,9 @@
 /**
  * Main function for the Banking System application
  * Handles main menu loop and user interactions with the banking system
- *
  */
+ //MENU was enhanced using AI
+
 int main() {
     // Initialize the banking system with data file paths
     BankSystem bankSystem("data/accounts.csv", "data/transactions.csv");
