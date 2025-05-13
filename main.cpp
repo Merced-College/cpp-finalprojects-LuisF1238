@@ -3,7 +3,6 @@
 *    Author: <Luis Flores>
 *    Date: <05/12/25>
 *    Code version: <1.5>
-*    Availability: <where it's located>
 *
 ***************************************************************************************/
 
@@ -12,16 +11,16 @@
 #include <iomanip>
 #include <string>
 #include <fstream>
+#include <limits> // For std::numeric_limits
 
 // Include header files from the project
-#include "include/controllers/BankSystem.h"
-#include "include/views/Menu.h"
+#include "include/Bank System/BankSystem.h"
+#include "include/Viewer POV/Menu.h"
 
 /**
  * Main function for the Banking System application
- * Handles the main menu loop and user interactions with the banking system
- * 
- * @return int Exit code (0 for successful execution)
+ * Handles main menu loop and user interactions with the banking system
+ *
  */
 int main() {
     // Initialize the banking system with data file paths
@@ -34,7 +33,21 @@ int main() {
     bool running = true;
     while (running) {
         displayMenu();
-        std::cin >> choice;
+        
+        // Input validation for main menu choices
+        if (!(std::cin >> choice)) {
+            // Handle non-numeric input
+            std::cin.clear(); // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
+            std::cout << "Invalid input. Please enter a number between 1 and 5." << std::endl;
+            continue; // Skip to next iteration of the loop
+        }
+        
+        // Validate input range (1-5)
+        if (choice < 1 || choice > 5) {
+            std::cout << "Invalid choice. Please enter a number between 1 and 5." << std::endl;
+            continue; // Skip to next iteration of the loop
+        }
         
         switch (choice) {
             case 1: {
@@ -80,7 +93,21 @@ int main() {
                     while (accountMenuRunning) {
                         displayAccountMenu(accountId);
                         int accountChoice;
-                        std::cin >> accountChoice;
+                        
+                        // Input validation for account submenu choices
+                        if (!(std::cin >> accountChoice)) {
+                            // Handle non-numeric input
+                            std::cin.clear(); // Clear the error flag
+                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
+                            std::cout << "Invalid input. Please enter a number between 1 and 5." << std::endl;
+                            continue; // Skip to next iteration of the loop
+                        }
+                        
+                        // Validate input range (1-5)
+                        if (accountChoice < 1 || accountChoice > 5) {
+                            std::cout << "Invalid choice. Please enter a number between 1 and 5." << std::endl;
+                            continue; // Skip to next iteration of the loop
+                        }
                         
                         switch (accountChoice) {
                             case 1: {
@@ -97,7 +124,19 @@ int main() {
                                 // Deposit
                                 double amount;
                                 std::cout << "Enter amount to deposit: $";
-                                std::cin >> amount;
+                                
+                                // Input validation for deposit amount
+                                if (!(std::cin >> amount)) {
+                                    std::cin.clear(); // Clear the error flag
+                                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
+                                    std::cout << "Invalid input. Please enter a numeric amount." << std::endl;
+                                    break;
+                                }
+                                
+                                if (amount <= 0) {
+                                    std::cout << "Amount must be greater than zero." << std::endl;
+                                    break;
+                                }
                                 
                                 if (bankSystem.deposit(accountId, amount)) {
                                     std::cout << "Deposit successful!" << std::endl;
@@ -110,7 +149,19 @@ int main() {
                                 // Withdraw
                                 double amount;
                                 std::cout << "Enter amount to withdraw: $";
-                                std::cin >> amount;
+                                
+                                // Input validation for withdrawal amount
+                                if (!(std::cin >> amount)) {
+                                    std::cin.clear(); // Clear the error flag
+                                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
+                                    std::cout << "Invalid input. Please enter a numeric amount." << std::endl;
+                                    break;
+                                }
+                                
+                                if (amount <= 0) {
+                                    std::cout << "Amount must be greater than zero." << std::endl;
+                                    break;
+                                }
                                 
                                 if (bankSystem.withdraw(accountId, amount)) {
                                     std::cout << "Withdrawal successful!" << std::endl;

@@ -27,7 +27,7 @@
    - Correct password entry clears the entire stack of failed attempts
 4. **Transaction Processing**: Manages deposits, withdrawals, and interest calculations 
 
-## Compiling
+## Running Program
 
 ```bash
   ./bank_system

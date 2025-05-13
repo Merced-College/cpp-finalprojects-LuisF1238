@@ -1,4 +1,4 @@
-#include "../../include/models/CheckingAccount.h"
+#include "../../include/System details/CheckingAccount.h"
 
 CheckingAccount::CheckingAccount(const std::string& id, const std::string& name, double initialBalance, 
                                 const std::string& pwd, double fee)

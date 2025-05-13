@@ -5,7 +5,7 @@
 #include <queue>
 #include <stack>
 #include <iostream>
-#include "../models/Transaction.h"
+#include "Transaction.h"
 
 class Account {
 protected:
@@ -25,14 +25,14 @@ public:
     
     virtual ~Account() = default;
 
-    // Getters
-    std::string getAccountId() const;
-    std::string getCustomerName() const;
-    std::string getAccountType() const;
-    double getBalance() const;
-    std::string getPassword() const;
-    bool isLocked() const;
-    int getLockoutTime() const;
+    // Getters (Accessor methods)
+    std::string getAccountId() const;       // Getter: Returns the account's unique identifier
+    std::string getCustomerName() const;    // Getter: Returns the account holder's name
+    std::string getAccountType() const;     // Getter: Returns the type of account (Checking, Savings, etc.)
+    double getBalance() const;              // Getter: Returns the current account balance
+    std::string getPassword() const;        // Getter: Returns the account password (for internal use only)
+    bool isLocked() const;                  // Getter: Returns whether the account is locked due to failed attempts
+    int getLockoutTime() const;             // Getter: Returns the remaining lockout time in seconds
     
     // Security methods
     bool validatePassword(const std::string& pwd);
@@ -41,9 +41,9 @@ public:
     void checkLockStatus();
     bool shouldBeDeleted() const; // Check if account should be deleted due to security
 
-    // Account operations
-    virtual bool deposit(double amount);
-    virtual bool withdraw(double amount);
+    // Account operations (Mutator methods)
+    virtual bool deposit(double amount);     // Setter: Adds funds to account and updates balance
+    virtual bool withdraw(double amount);    // Setter: Removes funds from account and updates balance
 
     // For CSV saving
     virtual std::string toCSV() const;

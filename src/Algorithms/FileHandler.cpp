@@ -1,7 +1,7 @@
 #include "../../include/utils/FileHandler.h"
 #include "../../include/utils/Algorithms.h"
-#include "../../include/models/CheckingAccount.h"
-#include "../../include/models/SavingsAccount.h"
+#include "../../include/System details/CheckingAccount.h"
+#include "../../include/System details/SavingsAccount.h"
 #include <fstream>
 
 FileHandler::FileHandler(const std::string& accFile, const std::string& transFile)

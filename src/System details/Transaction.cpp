@@ -1,4 +1,4 @@
-#include "../../include/models/Transaction.h"
+#include "../../include/System details/Transaction.h"
 
 Transaction::Transaction(const std::string& id, const std::string& accId, const std::string& transType, 
                         double amt, const std::string& transDate)

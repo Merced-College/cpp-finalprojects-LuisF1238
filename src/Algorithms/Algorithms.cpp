@@ -6,7 +6,7 @@
 #include <sstream>
 #include <cmath> // For std::pow
 
-// Algorithm 1: Binary search implementation for maps
+// Algorithm 1: Binary search (Using map and Array)
 template<typename KeyType, typename ValueType>
 bool binarySearchMap(const std::map<KeyType, ValueType>& mapToSearch, const KeyType& key) {
     return mapToSearch.find(key) != mapToSearch.end();
@@ -33,7 +33,7 @@ std::string generateUniqueAccountId(const std::map<std::string, void*>& existing
     return candidate;
 }
 
-// Algorithm 3: Password strength checker using stacks
+// Algorithm 3: Password strength checker using stack
 int checkPasswordStrength(const std::string& password) {
     if (password.length() < 8) return 0; // Too short
     
@@ -49,8 +49,8 @@ int checkPasswordStrength(const std::string& password) {
         else hasSpecial = true;
     }
     
-    // Calculate entropy while popping from stack
-    double entropy = 0;
+    // TODO: Implement entropy calculation in the future
+    // for more accurate password strength measurement
     std::map<char, int> charFreq;
     
     while (!chars.empty()) {
@@ -89,9 +89,9 @@ std::string simulatePasswordCrack(const std::string& password) {
     if (hasSpecial) charsetSize += 33;  // Special characters
     
     // Simulate cracking time
-    // Assuming 10 billion attempts per second (modern hardware)
+    // Assuming 1 billion attempts per second
     double combinations = std::pow(charsetSize, password.length());
-    double secondsToCrack = combinations / 10000000000.0;
+    double secondsToCrack = combinations / 1000000000.0;
     
     // Convert to appropriate time unit
     if (secondsToCrack < 60) {

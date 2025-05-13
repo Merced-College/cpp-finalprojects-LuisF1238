@@ -4,8 +4,8 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "../models/Account.h"
-#include "../models/Transaction.h"
+#include "../System details/Account.h"
+#include "../System details/Transaction.h"
 
 class FileHandler {
 private:

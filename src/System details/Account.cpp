@@ -1,4 +1,4 @@
-#include "../../include/models/Account.h"
+#include "../../include/System details/Account.h"
 #include <ctime>
 #include <random>
 
@@ -48,9 +48,7 @@ bool Account::shouldBeDeleted() const {
  * - Account locking after 3 failed attempts
  * - Account deletion after 5 failed attempts
  * - Failed attempt tracking even when the account is already locked
- * 
- * @param pwd The password to validate
- * @return bool True if password is correct, false otherwise
+ *
  */
 bool Account::validatePassword(const std::string& pwd) {
     try {
@@ -58,8 +56,7 @@ bool Account::validatePassword(const std::string& pwd) {
         checkLockStatus();
         
         if (locked) {
-            // SECURITY FIX: Even though the account is locked, we still count this as a failed attempt
-            // This ensures the remaining attempts counter decreases with each invalid try
+            //NOTE: Even though the account is locked, we still count this as a failed attempt
             recordFailedAttempt();
             return false;
         }

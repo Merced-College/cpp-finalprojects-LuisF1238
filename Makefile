@@ -1,3 +1,8 @@
+#
+#  Created by CHATGPT
+#
+
+
 CXX = g++
 CXXFLAGS = -Wall -Wextra -std=c++11
 TARGET = bank_system
@@ -6,12 +11,16 @@ TARGET = bank_system
 SRC_DIR = src
 INCLUDE_DIR = include
 
-# Find all source files
+# List all source files explicitly
 SRCS = main.cpp \
-       $(wildcard $(SRC_DIR)/models/*.cpp) \
-       $(wildcard $(SRC_DIR)/controllers/*.cpp) \
-       $(wildcard $(SRC_DIR)/utils/*.cpp) \
-       $(wildcard $(SRC_DIR)/views/*.cpp)
+       $(SRC_DIR)/Algorithms/Algorithms.cpp \
+       $(SRC_DIR)/Algorithms/FileHandler.cpp \
+       $(SRC_DIR)/Bank\ System/BankSystem.cpp \
+       $(SRC_DIR)/System\ details/Account.cpp \
+       $(SRC_DIR)/System\ details/CheckingAccount.cpp \
+       $(SRC_DIR)/System\ details/SavingsAccount.cpp \
+       $(SRC_DIR)/System\ details/Transaction.cpp \
+       $(SRC_DIR)/Viewer\ POV/Menu.cpp
 
 # Create object file names
 OBJS = $(SRCS:.cpp=.o)
