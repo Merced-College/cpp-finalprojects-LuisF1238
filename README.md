@@ -1,4 +1,34 @@
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=19513884)
-# cpp_finalProjects
+# C++ Banking System
 
-Upload your code and report here to this repo for your final project, change this README file to explain your final project github repo files.
+## Features
+
+- Create checking and savings accounts
+- Deposit and withdraw money
+- View account balance
+- Close accounts
+- Password strength checker
+- Data persistence with CSV files
+
+
+### Data Structures Used
+- **Maps**: Used to store and efficiently look up accounts by their IDs 
+- **Binary Search**: Implemented in account lookup and ID generation 
+- **Stacks**: Used for:
+  - Tracking failed login attempts and implementing account lockout 
+  - Password strength analysis 
+- **Queues**: Used for storing recent transactions 
+
+### Algorithms
+1. **Account Number Generator**: Creates unique account IDs 
+2. **Password Strength Checker**: Tests password security using stack data structure 
+3. **Advanced Security System**: Uses a stack to track login failures with progressive consequences 
+   - After 3 failed attempts: Account is locked for 1 minute
+   - After 5 failed attempts: Account is automatically deleted for security
+   - Correct password entry clears the entire stack of failed attempts
+4. **Transaction Processing**: Manages deposits, withdrawals, and interest calculations 
+
+## Compiling
+
+```bash
+  ./bank_system
+```
